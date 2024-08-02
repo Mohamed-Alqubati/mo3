@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content='width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0'>
+    <meta name="theme-color" content="#bc1644">
+    <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self' *;">
+    <meta property="og:title" content="البث المباشر - تصميم المهندس محمد القباطي">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://i.postimg.cc/tJhmNwKT/gogd.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="400">
+    <meta property="og:image:height" content="300">
+    <meta property="og:image:alt" content="البث المباشر - تصميم المهندس محمد القباطي">
+    <meta property="og:description" content="جميع قنوات بين اسبورت HD والقنوات الفضائية">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="expires" content="-1">
+    <link rel="shortcut icon" type="image/x-icon" href="https://i.im.ge/2024/04/18/Z12uML.live-removebg-preview.png">
+    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="css/osama.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+    <!-- تضمين أيقونات Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+<div id="loader">
+        <img src="https://i.postimg.cc/qvZR4v9D/Mobasher.png" alt="Logo">
+        <div id="network-name"><strong>البث المباشـر</strong></div>
+        <div id="engineer"><strong>!تابع كل شيء مباشرة</strong></div>
+        <div id="engineer"><strong>تجربة فريدة على شبكتنا اللاسلكية</strong></div>
+        <div id="engineer">تصميم المهندس | محمد القباطي </div>
+        <div class="loader-loop"></div>
+    </div>
+<style>
+    	
+
+#loader {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+            background-color: #bc1644;
+	    z-index: 9999;
+	    position: fixed;
+            top: 0;
+            left: 0;   
+        }
+
+        #loader img {
+            width: 300px;
+            height: auto;
+        }
+
+        #network-name {
+            font-size: 1.5em;
+            margin-top: 10px;
+        }
+
+        #engineer {
+            font-size: 0.8em;
+            margin-top: 5px;
+        }
+
+        #content {
+            display: none;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .loader-loop {
+            width: 100px;
+            display: grid;
+            margin-top:30px;
+            background: radial-gradient(farthest-side, #fff 98%, #0000) center/30px 100% no-repeat;
+            --mask: 
+                radial-gradient(12px at left 15px top 50%, #0000 95%, #000),
+                radial-gradient(12px at center, #0000 95%, #000),
+                radial-gradient(12px at right 15px top 50%, #0000 95%, #000);
+            -webkit-mask: var(--mask);
+            mask: var(--mask);
+            -webkit-mask-composite: source-in;
+            mask-composite: intersect;
+            animation: l2 1s infinite alternate;
+        }
+
+        .loader-loop:before,
+        .loader-loop:after {
+            content: "";
+            grid-area: 1/1;
+            height: 30px;
+            aspect-ratio: 1;
+            background: #fff;
+            border-radius: 50%;
+        }
+
+        .loader-loop:after {
+            margin-left: auto;
+        }
+
+        @keyframes l2 {
+            to {
+                width: 50px;
+            }
+	}
+    	
+    
+  body {
+    background: #bc1644; 
+    color: #fff;
+    font-family: "Cairo", sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+    
+    }
+    
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: absolute;
+            top: 565px;
+		left: 30%;
+        
+		
+
+            
+        }
+
+        .button {
+            font-size: small;
+            margin-bottom: 30px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            background-color: #1d242e;
+            color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border: 2px solid #fff;
+            height: 50px;
+            width: 100px;
+            font-size: small;
+            cursor: pointer;
+            margin-right: 5px;
+            font-family: "Cairo", sans-serif;
+        }
+        
+        .iframe-wrapper {
+            position: absolute;
+            z-index: 100;
+            margin: 5%;
+            top: 15px;
+            width: 94%;
+            height: 500px;
+        }
+
+        #fram {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Media Query لتحديد إعدادات مختلفة للأجهزة المحمولة */
+        @media (max-width: 768px) {
+            .iframe-wrapper {
+                width: 100%;
+                height: 400px;
+                margin: 0;
+                top: 0;
+            }
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            z-index: 120;
+            margin: 5%;
+            top: 350px;
+	    margin-right: 65px;
+	    left: 30px;
+            width: 94%;
+            height: 50px;
+        }
+
+        .control-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            margin: 0 10px;
+	    margin-right: 65px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+	.button-containerapp {
+            position: fixed;
+            left: 20px;
+            top: 79%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+	    z-index: 101;
+        }
+
+        .circle-button {
+            border: 2px solid #fff;
+            color: #fff;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+	    z-index: 101;
+            transition: background-color 0.3s;
+        }
+
+        .circle-button:active {
+            background-color: #3498db; /* اللون النشط */
+        }
+
+        .color-picker {
+            position: fixed;
+            left: 80px;
+            top: 65%;
+	    z-index: 999;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .color-option {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .hidden {
+            display: none;
+	}
+
+	.info-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            z-index: 1;
+            left: 10%;
+            top: 405px;
+            width: 300px;
+            height: 120px;
+            background: linear-gradient(145deg, #1d242e, #2a3140);
+            padding: 10px;
+            border-radius: 10px;
+            margin: 5px;
+            font-size: 14px;
+            border: 2px solid transparent;
+            border-image: linear-gradient(45deg, #ff007f, #ff6600, #ff007f);
+            border-image-slice: 1;
+            transition: all 0.3s ease;
+            animation: glowing 1.5s infinite;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .marquee {
+            border: 2px solid #ef6c00;
+            border-radius: 10px;
+            width: 100%;
+            margin-bottom: 10px;
+            display: block;
+            position: relative;
+            background: #1d242e;
+            color: #fff;
+        }
+
+        .marquee span {
+            display: inline-block;
+            background: #d91048;
+            padding: 0 10px;
+            color: #fff;
+            float: right;
+            line-height: 30px;
+            border-radius: 10px 0 0 10px;
+        }
+
+        .marquee marquee {
+            display: block;
+            line-height: 30px;
+            margin-right: 10px;
+            color: #fff;
+        }
+
+        .info-button {
+            background: linear-gradient(45deg, #ff007f, #ff6600, #ff007f);
+            background-size: 200% 200%;
+            color: #fff;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 0, 127, 0.3);
+            animation: glowing 1.5s infinite;
+        }
+
+        @keyframes glowing {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .info-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 0, 127, 0.4);
+        }
+        
+        
+    </style>
+</head>
+
+<body translate="no">
+    
+    <div class="iframe-wrapper">
+        <iframe id="fram" title="شاهد قناة بي ان سبورت 1 بث مباشر - beIN Sports 1 live"
+                src="https://www.aflam4you.net/zremb472.php?vid=68&amp;aflam_s=1&amp;aflam_w=5675&amp;aflam_h=556755&amp;aflam_k=1111111333"
+                name="Player" allowfullscreen="allowfullscreen" allow="autoplay; fullscreen">
+        </iframe>
+    </div>
+    <script>
+        // فحص ما إذا كان الجهاز محمول أو كمبيوتر
+        document.addEventListener("DOMContentLoaded", function() {
+            var iframe = document.getElementById('fram');
+            if (window.innerWidth <= 768) {
+                iframe.removeAttribute('sandbox');
+            }
+        });
+    </script>
+    <div id="page-content">
+    
+    <div class="button-container">
+        <script>
+            var vid = 0;
+            function CHANGE(id) {
+                vid = id;
+                document.getElementById('fram').src = "https://www.aflam4you.pro/playeraf.php?vid=" + id + "&amp;aflam_s=1&amp;aflam_w=404&amp;aflam_h=280&amp;aflam_k=";
+            }
+            function viewAllChannels() {
+                window.location.href = "update-mobasher.html";
+            }
+        </script>
+        <div style="display: flex; margin-right: 25%;">
+        <button class="button app-submit price-icon" style="font-size: small; height: 50px; width: 100px; margin-right: 10px; "
+            onclick="CHANGE(vid + 1)"><i class="fa fa-arrow-left"></i>القناة التالية</button>
+        <button class="button app-submit price-icon" style="font-size: small; height: 50px; width: 110px; margin-left: 10px;"
+            onclick="CHANGE(vid + 1)">القناة السابقة<i class="fa fa-arrow-right"></i></button></div>
+        <button class="button app-submit price-icon" style="font-size: large; height: 75px; width: 200px; margin-right: 25%; " onclick="viewAllChannels()">
+    <i class="fa fa-tv" style="margin-bottom: 5px;"></i> <!-- تم إضافة هذا السطر لتعديل المسافة بين الأيقونة والنص -->
+    <span style="display: block;">عرض جميع القنوات</span> <!-- تم تغيير النص إلى عنصر نصي منفصل -->
+</button>
+	<button class="button app-submit price-icon" style="font-size: small; height: 50px; width: 140px; margin-right: 25%;" id="tvButton"><i class="fa fa-info-circle"></i> صفحة المعلومات</button>
+
+<script>
+document.getElementById('tvButton').addEventListener('click', function() {
+    // قائمة بالأيبيهات المعروفة لشبكات MikroTik
+    var known_ips = [
+        '172.16.0.1',
+        '10.0.0.1',
+        '1.1.1.1',
+        '4.4.4.4',
+        '0.0.0.0'
+    ];
+
+    // تكرار عبر الأيبيهات المعروفة
+    known_ips.forEach(function(ip) {
+        // استخدام XMLHttpRequest للتحقق من الاتصال بالأيبي
+        var xhr = new XMLHttpRequest();
+        var url = 'http://' + ip + '/login'; // تكوين URL للاتصال بالأيبي
+
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    // إذا كان الرد ناجحًا، قم بإعادة التوجيه إلى صفحة الهوتسبوت
+                    window.location.href = url;
+                }
+            }
+        };
+
+        xhr.open('GET', url, true);
+        xhr.timeout = 5000; // زمن الانتظار للرد، يمكنك ضبطه حسب احتياجاتك
+        xhr.send();
+    });
+});
+</script>
+    </div>
+    <div class="button-containerapp">
+        <button class="circle-button" id="homeButton" style="background-color: #1d242e;">
+            <i class="fas fa-home"></i>
+        </button>
+        <button class="circle-button" id="liveButton"style="background-color: #E3651D;">
+            <i class="fas fa-broadcast-tower"></i>
+        </button>
+        <button class="circle-button" id="colorButton" style="color: #E3651D; background-color: #1d242e;">
+            <i class="fas fa-palette"></i>
+        </button>
+    </div>
+
+    <div id="colorPicker" class="color-picker hidden">
+        <div class="color-option" style="background-color: #bc1644;" data-color="#bc1644"></div>
+        <div class="color-option" style="background-color: #1d242e;" data-color="#1d242e"></div>
+        <div class="color-option" style="background-color: #3D358A;" data-color="#3D358A"></div>
+	<div class="color-option" style="background-color: #ad660f;" data-color="#ad660f"></div>
+	<div class="color-option" style="background-color: #5BE214;" data-color="#5BE214"></div>
+	<div class="color-option" style="background-color: #18DDD2;" data-color="#18DDD2"></div>
+	<div class="color-option" style="background-color: #E83210;" data-color="#E83210"></div>
+	<div class="color-option" style="background-color: #686D76;" data-color="#686D76"></div>
+	<div class="color-option" style="background-color: #81689D;" data-color="#81689D"></div>
+	<div class="color-option" style="background-color: #49243E;" data-color="#49243E"></div>
+        <!-- أضف المزيد من الألوان حسب الحاجة -->
+    </div>
+    <div class="controls">
+    <button id="fullScreenButton" class="control-button"><i class="fas fa-expand"></i></button>
+    </div>
+    <div class="info-container">
+        <div class="marquee">
+            <span>تنويه:</span>
+            <marquee behavior="scroll" direction="right" scrollamount="8">
+                هذا المشغل يحتوي على جميع قنوات بين سبورت الرياضية المشفرة. يمكنك التنقل بين القنوات باستخدام الأزرار أدناه. يتم بث القنوات بدون تقطيع وبدون إعلانات عبر المشغل.
+            </marquee>
+        </div>
+        <a href="https://mohamed-alqubati.github.io/mo3/bein.html" class="info-button">مشاهدة الآن بدون تقطيع عبر المشغل</a>
+    </div>
+<div style="align=center; padding-top: 830px;">
+<footer style="background-color: #1d242e; color: #fff; padding: 20px 0; width: 700px;">
+    <style>
+        .footer-content {
+            text-align: center;
+            font-size: 14px;
+            width: 100%;
+            
+        }
+
+        .social-icons {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .social-icons li {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        .social-icons li a {
+            color: #ef6c00;
+            font-size: 16px;
+        }
+
+        .social-icons li a:hover {
+            color: #ffcc00;
+        }
+    </style>
+    <div class="container">
+        <div class="footer-content">
+        	 <h3 style="color: #ef6c00; ">شاهد الان</h3>
+                        <h4>جميع قنوات</h4>
+                        <h3 style="color: #ef6c00; ">" بين سبورت - Bein Sport HD "</h3>
+                        <h4>الرياضية والمشفرة</h4>
+                        <p>...</p>
+                        <p>-----------------------------------------------------</p>
+                        <p>...</p>
+            <p>تم بناء هذا الموقع بعناية فائقة وحب.</p>
+<p>/ بواسطة المهندس <h5 style="color: #ef6c00">محمد القباطي </h5></p>
+            <p>جميع الحقوق محفوظة &copy; 2024 </p>
+            <p>+للتواصل: 967772939615</p>
+            <p>حساباتي:</p>
+            <ul class="social-icons">
+                <li><a href="https://wa.me/967772939615"><i class="fab fa-whatsapp fa-lg"></i></a></li>
+                <li><a href="https://www.facebook.com/profile.php?id=100011655576164"><i class="fab fa-facebook fa-lg"></i></a></li>
+                <!-- يمكنك إضافة المزيد من الأيقونات حسب الحاجة -->
+            </ul>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const frame = document.getElementById('fram');
+
+        frame.contentWindow.document.addEventListener('click', function(event) {
+            event.preventDefault(); // منع فتح الروابط
+            event.stopPropagation(); // منع انتشار الحدث إلى العناصر الأخرى
+            return false;
+        });
+
+        frame.contentWindow.document.addEventListener('contextmenu', function(event) {
+            event.preventDefault(); // منع فتح قائمة السياق
+            event.stopPropagation(); // منع انتشار الحدث إلى العناصر الأخرى
+            return false;
+        });
+    });
+</script>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const homeButton = document.getElementById('homeButton');
+            const liveButton = document.getElementById('liveButton');
+            const colorButton = document.getElementById('colorButton');
+            const colorPicker = document.getElementById('colorPicker');
+            const colorOptions = document.querySelectorAll('.color-option');
+
+            homeButton.addEventListener('click', () => {
+                // قم بتوجيه العميل إلى الصفحة الرئيسية
+                window.location.href = 'update-mobasher.html';
+            });
+
+            liveButton.addEventListener('click', () => {
+                // قم بتوجيه العميل إلى صفحة البث المباشر
+                window.location.href = 'tv.html#';
+            });
+
+            colorButton.addEventListener('click', () => {
+                // إظهار أو إخفاء قائمة اختيار الألوان
+                colorPicker.classList.toggle('hidden');
+            });
+
+            colorOptions.forEach(option => {
+                option.addEventListener('click', (e) => {
+                    const color = e.target.dataset.color;
+                    document.querySelector('meta[name="theme-color"]').setAttribute('content', color);
+                    document.body.style.backgroundColor = color;
+                    colorPicker.classList.add('hidden');
+                });
+            });
+        });
+</script>
+<script>
+    // تحديد المشغل
+    var player = document.getElementById('fram');
+
+    // وظيفة التحكم في تشغيل وإيقاف التشغيل
+    
+
+    // وظيفة التحكم في تكبير الشاشة
+    function toggleFullScreen() {
+        if (player.requestFullscreen) {
+            player.requestFullscreen();
+        } else if (player.mozRequestFullScreen) {
+            player.mozRequestFullScreen();
+        } else if (player.webkitRequestFullscreen) {
+            player.webkitRequestFullscreen();
+        } else if (player.msRequestFullscreen) {
+            player.msRequestFullscreen();
+        }
+    }
+
+    // ربط الوظائف بالأزرار عن طريق الاستماع للنقر
+    
+    document.getElementById('fullScreenButton').addEventListener('click', toggleFullScreen);
+</script>
+<script>
+// سكريبت لإخفاء اللودر بعد تحميل الصفحة
+window.addEventListener('load', function() {
+  var loader = document.getElementById('loader');
+  var pageContent = document.getElementById('page-content');
+  
+  // إخفاء اللودر بعد تحميل الصفحة
+  loader.style.display = 'none';
+  // إظهار محتوى الصفحة بعد تحميلها
+  pageContent.style.display = 'block';
+});
+</script>
+<script>
+        document.getElementById('fullScreenButton').addEventListener('click', function() {
+            // كود تكبير الشاشة
+            const player = document.getElementById('fram');
+            if (player.requestFullscreen) {
+                player.requestFullscreen();
+            } else if (player.mozRequestFullScreen) { // Firefox
+                player.mozRequestFullScreen();
+            } else if (player.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                player.webkitRequestFullscreen();
+            } else if (player.msRequestFullscreen) { // IE/Edge
+                player.msRequestFullscreen();
+            }
+            console.log('تكبير الشاشة');
+        });
+    </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+<script>
+        // منع التحديث التلقائي للصفحة
+        (function() {
+            // تعطيل النماذج من إعادة تحميل الصفحة
+            document.addEventListener('submit', function(event) {
+                event.preventDefault();
+            }, true);
+
+            
+
+            // تعطيل عمليات التحديث المقررة باستخدام setTimeout و setInterval
+            const originalSetTimeout = window.setTimeout;
+            const originalSetInterval = window.setInterval;
+
+            window.setTimeout = function(callback, delay) {
+                console.warn('تم منع setTimeout من إعادة تحميل الصفحة.');
+            }
+
+            window.setInterval = function(callback, interval) {
+                console.warn('تم منع setInterval من إعادة تحميل الصفحة.');
+            }
+
+            // تعطيل عمليات التحديث عبر تاريخ المتصفح
+            window.onbeforeunload = function(event) {
+                event.preventDefault();
+                return '';
+            };
+
+            // تعطيل التحديث التلقائي في حالة وجود محتوى ديناميكي (AJAX, WebSocket)
+            const originalXHRSend = XMLHttpRequest.prototype.send;
+            XMLHttpRequest.prototype.send = function() {
+                console.warn('تم منع XMLHttpRequest من إعادة تحميل الصفحة.');
+            };
+
+            const originalWebSocketSend = WebSocket.prototype.send;
+            WebSocket.prototype.send = function() {
+                console.warn('تم منع WebSocket من إعادة تحميل الصفحة.');
+            };
+        })();
+</script>
+</html>
